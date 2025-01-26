@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Fortune Teller</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sanchez:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    @font-face {
+      font-family: myFirstFont;
+      src: url(Fonts/BrittanyExample-Regular.ttf) format('truetype');
+    }
+
+    body {
+      font-family: "Sanchez", serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-image: url(BG.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: #fff;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.151);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      width: 90%;
+      max-width: 400px;
+      backdrop-filter: blur(12px);
+    }
+
+    .title img {
+      width: 80%;
+    }
+
+    .fortune {
+
+      margin: 20px 0;
+      min-height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #195500;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-family: "Sanchez", serif;
+    }
+
+    button:hover {
+      background: #237400;
+    }
+
+    @media (max-width: 600px) {
+      .title {
+        font-size: 1.5rem;
+      }
+
+      .fortune {
+        font-size: 20px;
+      }
+
+      button {
+        font-size: 20px;
+        padding: 8px 16px;
+      }
+
+      .container {
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="title">
+      <img src="logo2.png" alt="haritha logo">
+    </div>
+    <div class="fortune" id="fortuneDisplay">Click the button to reveal your fortune!</div>
+    <button onclick="generateFortune()">Get Your Fortune</button>
+  </div>
+
+  <script>
+    const fortunes = [
+      "A gentle breeze will carry your worries away.",
+      "Today is a perfect day to connect with nature.",
+      "An opportunity to grow is just around the corner.",
+      "Your kindness will bring you unexpected rewards.",
+      "A moment of peace will lead to clarity.",
+      "New adventures await if you stay open to possibilities.",
+      "Happiness blooms like bamboo, strong and tall.",
+      "A soothing sound will inspire your next great idea.",
+      "The energy of the wind will guide you to success.",
+      "Take time to appreciate the small joys in life."
+    ];
+
+    function generateFortune() {
+      const fortuneDisplay = document.getElementById("fortuneDisplay");
+      const randomIndex = Math.floor(Math.random() * fortunes.length);
+      fortuneDisplay.textContent = fortunes[randomIndex];
+    }
+  </script>
+</body>
+
+</html>
